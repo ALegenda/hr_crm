@@ -1,0 +1,51 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl-arm64-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Vacancy {
+  id           Int         @id @default(autoincrement())
+  title        String
+  description  String
+  skills       String[]
+  requirements String
+  context      String
+  questions    Question[]
+  candidates   Candidate[]
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+}
+
+model Question {
+  id        Int     @id @default(autoincrement())
+  text      String
+  vacancyId Int
+  Vacancy   Vacancy @relation(fields: [vacancyId], references: [id], onDelete: Cascade)
+}
+
+model Candidate {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  phone     String
+  vacancyId Int
+  Vacancy   Vacancy  @relation(fields: [vacancyId], references: [id], onDelete: Cascade)
+  answers   Json
+  analysis  Json?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+} 

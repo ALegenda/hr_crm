@@ -1,0 +1,23 @@
+{
+  "name": "hr-crm",
+  "version": "1.0.0",
+  "description": "HR CRM with auto-generated questionnaires",
+  "scripts": {
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
+    "docker:build": "docker compose build",
+    "docker:restart": "docker compose down && docker compose up -d",
+    "backend:dev": "cd backend && npm run dev",
+    "frontend:dev": "cd frontend && npm run dev",
+    "prisma:migrate": "cd backend && npx prisma migrate dev",
+    "prisma:generate": "cd backend && npx prisma generate",
+    "prisma:seed": "cd backend && npx prisma db seed",
+    "prisma:studio": "cd backend && npx prisma studio"
+  },
+  "prisma": {
+    "seed": "ts-node backend/prisma/seed.ts"
+  },
+  "author": "",
+  "license": "MIT"
+} 

@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "vacancyId": 1,
+    "answers": {
+      "0": "вапвапва",
+      "1": "пвапвап",
+      "2": "вапвап",
+      "3": "йваппй",
+      "4": "павп",
+      "5": "ваыпывп",
+      "6": "ывапыв",
+      "7": "ваыпыв"
+    },
+    "createdAt": "2025-04-22T05:40:15.822Z",
+    "analysis": {
+      "summary": "This candidate has provided comprehensive answers that demonstrate good experience with the technologies required.",
+      "strengths": [
+        "Strong understanding of React and TypeScript",
+        "Good communication skills",
+        "Experience with modern frontend development practices"
+      ],
+      "weaknesses": [
+        "May need more experience with advanced state management",
+        "Limited exposure to testing frameworks"
+      ],
+      "recommendation": "Recommended for interview",
+      "score": 94,
+      "keywords": [
+        "React",
+        "TypeScript",
+        "Frontend",
+        "Development",
+        "Components"
+      ]
+    }
+  }
+]
