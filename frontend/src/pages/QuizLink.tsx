@@ -71,9 +71,8 @@ const QuizLink = () => {
     isPublicPath: location.pathname.startsWith('/quiz/') 
   });
   
-  // Определяем режим отображения по URL-пути, а не только по аутентификации
+  // Определяем режим отображения по URL-пути
   const isPublicPath = location.pathname.startsWith('/quiz/');
-  const isAdminPath = location.pathname.includes('/vacancy/') && location.pathname.includes('/quiz');
   
   // В публичном пути всегда показываем публичную форму
   const isPublic = isPublicPath;
