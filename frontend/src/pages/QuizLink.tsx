@@ -117,7 +117,7 @@ const QuizLink = () => {
   };
 
   const getPublicUrl = () => {
-    return `${window.location.origin}/quiz/${id}`;
+    return `${window.location.origin}/#/quiz/${id}`;
   };
 
   const copyToClipboard = () => {
