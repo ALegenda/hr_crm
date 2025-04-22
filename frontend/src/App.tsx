@@ -9,6 +9,8 @@ import VacancyForm from './pages/VacancyForm';
 // @ts-ignore
 import QuizLink from './pages/QuizLink';
 // @ts-ignore
+import PublicQuiz from './pages/PublicQuiz';
+// @ts-ignore
 import Results from './pages/Results';
 import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
 
@@ -31,7 +33,7 @@ const ProtectedRoute = ({ element }: { element: JSX.Element }) => {
 function AppRoutes() {
   return (
     <Routes>
-      <Route path="/quiz/:id" element={<QuizLink />} />
+      <Route path="/quiz/:id" element={<PublicQuiz />} />
       <Route path="/login" element={<Login />} />
       <Route path="/" element={<ProtectedRoute element={<Dashboard />} />} />
       <Route path="/vacancy/new" element={<ProtectedRoute element={<VacancyForm />} />} />
