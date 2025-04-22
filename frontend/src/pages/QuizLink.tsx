@@ -68,7 +68,6 @@ const QuizLink = () => {
   const isAdminPath = location.pathname.includes('/vacancy/') && location.pathname.includes('/quiz');
   
   // В публичном пути всегда показываем публичную форму, даже если пользователь аутентифицирован
-  const isAdmin = isAuthenticated && isAdminPath;
   const isPublic = isPublicPath || (!isAuthenticated && !isAdminPath);
 
   useEffect(() => {

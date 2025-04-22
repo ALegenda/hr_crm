@@ -86,7 +86,7 @@ const Results = () => {
 
     try {
       setDetailsLoading(true);
-      const candidateData = await getCandidate(Number(id), candidateId);
+      const candidateData = await getCandidate(candidateId);
       setSelectedCandidate(candidateData);
     } catch (error) {
       console.error('Error fetching candidate details:', error);

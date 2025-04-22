@@ -122,7 +122,7 @@ export const getCandidates = async (vacancyId: number) => {
   return response.data;
 };
 
-export const getCandidate = async (vacancyId: number, candidateId: number) => {
+export const getCandidate = async (candidateId: number) => {
   const response = await api.get(`/candidates/${candidateId}`);
   return response.data;
 };
