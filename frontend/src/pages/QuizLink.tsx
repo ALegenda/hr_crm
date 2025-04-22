@@ -63,12 +63,20 @@ const QuizLink = () => {
   const [actionSuccess, setActionSuccess] = useState(false);
   const [actionMessage, setActionMessage] = useState('');
   
+  // Отладочная информация
+  console.log('QuizLink render:', { 
+    id, 
+    pathname: location.pathname, 
+    isAuthenticated, 
+    isPublicPath: location.pathname.startsWith('/quiz/') 
+  });
+  
   // Определяем режим отображения по URL-пути, а не только по аутентификации
   const isPublicPath = location.pathname.startsWith('/quiz/');
   const isAdminPath = location.pathname.includes('/vacancy/') && location.pathname.includes('/quiz');
   
-  // В публичном пути всегда показываем публичную форму, даже если пользователь аутентифицирован
-  const isPublic = isPublicPath || (!isAuthenticated && !isAdminPath);
+  // В публичном пути всегда показываем публичную форму
+  const isPublic = isPublicPath;
 
   useEffect(() => {
     fetchVacancy();

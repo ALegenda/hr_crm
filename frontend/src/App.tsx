@@ -1,9 +1,14 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './auth';
+// @ts-ignore
 import Login from './pages/Login';
+// @ts-ignore
 import Dashboard from './pages/Dashboard';
+// @ts-ignore
 import VacancyForm from './pages/VacancyForm';
+// @ts-ignore
 import QuizLink from './pages/QuizLink';
+// @ts-ignore
 import Results from './pages/Results';
 import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
 
@@ -42,7 +47,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Router>
+      <Router basename={import.meta.env.BASE_URL || "/"}>
         <AuthProvider>
           <AppRoutes />
         </AuthProvider>
