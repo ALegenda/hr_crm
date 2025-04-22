@@ -68,23 +68,24 @@ const QuizLink = () => {
     id, 
     pathname: location.pathname, 
     isAuthenticated, 
-    isPublicPath: location.pathname.startsWith('/quiz/') 
+    isPublicPath: location.pathname.startsWith('/quiz/'),
+    vacancyData: vacancy
   });
   
-  // Определяем режим отображения по URL-пути
-  const isPublicPath = location.pathname.startsWith('/quiz/');
-  
-  // В публичном пути всегда показываем публичную форму
-  const isPublic = isPublicPath;
+  // Явно определяем режим по URL-пути
+  const isPublic = location.pathname.startsWith('/quiz/');
 
   useEffect(() => {
+    console.log('QuizLink useEffect triggered, fetching vacancy data...');
     fetchVacancy();
   }, [id]);
 
   const fetchVacancy = async () => {
     try {
       setLoading(true);
+      console.log('Fetching vacancy data for ID:', id);
       const data = await getVacancy(Number(id));
+      console.log('Vacancy data received:', data);
       setVacancy(data);
       
       // Initialize answers with empty strings using question ID as key
@@ -94,6 +95,7 @@ const QuizLink = () => {
           initialAnswers[q.id.toString()] = '';
         });
         setAnswers(initialAnswers);
+        console.log('Initialized answers:', initialAnswers);
       }
     } catch (error) {
       console.error('Error fetching vacancy:', error);

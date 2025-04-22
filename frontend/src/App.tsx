@@ -31,13 +31,13 @@ const ProtectedRoute = ({ element }: { element: JSX.Element }) => {
 function AppRoutes() {
   return (
     <Routes>
+      <Route path="/quiz/:id" element={<QuizLink />} />
       <Route path="/login" element={<Login />} />
       <Route path="/" element={<ProtectedRoute element={<Dashboard />} />} />
       <Route path="/vacancy/new" element={<ProtectedRoute element={<VacancyForm />} />} />
       <Route path="/vacancy/edit/:id" element={<ProtectedRoute element={<VacancyForm />} />} />
       <Route path="/vacancy/:id/quiz" element={<ProtectedRoute element={<QuizLink />} />} />
       <Route path="/vacancy/:id/results" element={<ProtectedRoute element={<Results />} />} />
-      <Route path="/quiz/:id" element={<QuizLink />} />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
