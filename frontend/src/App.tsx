@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './auth';
 // @ts-ignore
 import Login from './pages/Login';
@@ -49,7 +49,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Router basename={import.meta.env.BASE_URL || "/"}>
+      <Router>
         <AuthProvider>
           <AppRoutes />
         </AuthProvider>
