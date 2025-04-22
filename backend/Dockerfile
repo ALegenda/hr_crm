@@ -14,8 +14,8 @@ RUN npm install
 # Копирование файлов Prisma (схема и миграции)
 COPY prisma ./prisma/
 
-# Копирование файла .env для Prisma
-COPY .env ./
+# Создание пустого файла .env если он не существует
+RUN touch .env
 
 # Генерация Prisma клиента
 RUN npx prisma generate
