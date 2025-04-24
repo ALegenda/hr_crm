@@ -24,10 +24,10 @@ model Vacancy {
   skills       String[]
   requirements String
   context      String
-  questions    Question[]
-  candidates   Candidate[]
   createdAt    DateTime    @default(now())
   updatedAt    DateTime    @updatedAt
+  candidates   Candidate[]
+  questions    Question[]
 }
 
 model Question {
@@ -39,13 +39,13 @@ model Question {
 
 model Candidate {
   id        Int      @id @default(autoincrement())
-  name      String
-  email     String
-  phone     String
   vacancyId Int
-  Vacancy   Vacancy  @relation(fields: [vacancyId], references: [id], onDelete: Cascade)
   answers   Json
   analysis  Json?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-} 
+  email     String
+  name      String
+  phone     String
+  Vacancy   Vacancy  @relation(fields: [vacancyId], references: [id], onDelete: Cascade)
+}

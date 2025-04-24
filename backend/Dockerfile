@@ -29,4 +29,4 @@ COPY . .
 EXPOSE 3000
 
 # Применение миграций при запуске контейнера и запуск сервера
-CMD npm run dev 
+CMD npx prisma migrate deploy && npm run dev 
